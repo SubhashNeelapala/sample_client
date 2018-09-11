@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+    <div class="col-md-12">
+      
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <!-- <div class="alert alert-danger alert-dismissible fade in" *ngIf = 'loginstatus'>
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <span>Username or Password wrong</span>
+         </div> -->
+  
+        
+  <form style="margin-top: 130px;" [formGroup]="homehierarchylevelform" (ngSubmit)="logForm()"> 
+  <div class="panel panel-default" style="border: none !important;height:300px;">
+        <div class="text-center" style="color: #fff;  background-color:#cc508a;text-align: center;padding: 15px 0px;font-size:16px;">Sample Project</div>
+        <div class="panel-body" style="padding:50px 15px;">
+            <div class="form-group">
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input  style="height:46px;" formControlName="username" name="username" type="text" class="form-control"  placeholder="Username">
+      </div>
+      </div>
+      <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <input  style="height:46px;" formControlName="password" type="password" class="form-control" name="password" placeholder="Password">
+      </div>
+      </div>
+    <!-- <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div> -->
+    <button type="submit" class="btn btn-block" style="background-color: #cc508a;color: #fff"><i class="fa fa-sign-in"></i> Sign In</button></div>
+  
+    
+      </div>
+  
+  </form>
+  
+      </div>
+     
+  
+    </div>
+  </div>
