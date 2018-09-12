@@ -4,4 +4,6 @@ export class UserRegistration{
     mobile_number:any =""
     first_name:any =""
     last_name:any=""
+    age:any=""
+
 }

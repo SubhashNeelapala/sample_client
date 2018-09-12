@@ -12,41 +12,21 @@
       <nav class="navbar navbar-static-top" role="navigation"> 
         <!-- Sidebar toggle button--> 
         <a href="index2.html" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a> 
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <li class="dropdown messages-menu"> 
 
-          <li class="dropdown user user-menu"> 
-            <!-- Menu Toggle Button --> 
-           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-              <!-- The user image in the navbar--> 
-              <!-- <img  src="assets/bootstrap/img/user2-160x160.jpg" class="user-image" alt="User Image">  -->
-              <!-- hidden-xs hides the username on small devices so only the image appears. --> 
-              <span class="hidden-md"><strong><span style="text-transform: capitalize;">{{username}}</span></strong> </span> </a>
-              <ul class="dropdown-menu">
-                <!-- The user image in the menu -->
-                <li class="user-header">
-                  <!-- <img src="assets/bootstrap/img/user2-160x160.jpg" class="img-circle" alt=""> -->
-                  <p><span style="text-transform: capitalize;"><small> <span class="text-left-txt">Name : </span>{{name}}<br/> <span class="text-left-txt">Role :</span>  {{role}}<br/><span class="text-left-txt">Username</span> {{username}} </small></span></p>
-                </li>
-              <!-- Menu Body --> 
-              
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left "> <a [routerLink]="['changepassword']" class="btn btn-default btn-flat ">Change Password</a> </div>
-                  
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          
-        </ul>
         <div class="col-md-6 pull-right">
           <div class="pull-right"> <a (click)="logout()" class="btn btn-default "><i class="fa fa-sign-out"></i> Sign out</a> </div>
         </div>
-      </div>
-    </nav>
+
+        
+      </nav>
+      
   </header>
+  <body>
+<div class="col-md-8">
+  <div class="col-md-6 pull-left">
+    <button type="button" class="btn btn-danger btn-sm pull-right"   (click)="AddUser()"><i class="fa fa-plus"></i> Registration</button>
+</div>
+</div>
 <table  datatable [dtTrigger]="dtTrigger"  class="table row-border hover table-striped" style="width:100%;">
   <thead>
     <tr>
@@ -55,7 +35,7 @@
         <th>Username</th>
         <th>Age</th>
         <th>Name</th>
-        <th>Edit</th>
+        <!-- <th>Edit</th> -->
     </tr>
   </thead>
   <tbody>
@@ -65,10 +45,11 @@
         <td>{{items.username}}</td>
         <td>{{items.age}}</td>
         <td>{{items.name}}</td>
-        <td><button class="fa fa-edit" ></button></td>
+        <!-- <td><button class="fa fa-edit" ></button></td> -->
     </tr>
   </tbody>
 </table>
+</body>
 <footer class="main-footer"> 
     
   <div class="row">
@@ -78,3 +59,46 @@
   </div>             
 </footer>
 </div>
+
+
+
+
+<form name="registrationForm">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:rgb(0, 139, 30);color:brown">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Registration</h4>
+        </div>
+        <!-- <div class="modal-body"> -->
+            <div class="col-md-6 ">
+                Username:<input type="text" class="form-control" name="username" placeholder="username" [(ngModel)]="registration.username" >
+            </div>
+            <div class="col-md-6">
+                First Name<input type="text" class="form-control" name="first_name" placeholder="first_name" [(ngModel)]="registration.first_name">
+            </div>
+            <div class="col-md-6">
+                Last Name<input type="text" class="form-control" name="last_name" placeholder="last_name" [(ngModel)]="registration.last_name">
+            </div>
+            <div class="col-md-6">
+                Mobile Number<input type="text" class="form-control" name="mobile_number" placeholder="mobile_number" [(ngModel)]="registration.mobile_number">
+            </div>
+            <div class="col-md-6">
+                Age<input type="text" name="age" class="form-control" placeholder="age" [(ngModel)]="registration.age">
+            </div>
+            <div class="col-md-6">
+                Password<input type="password" name="password" class="form-control" placeholder="password" [(ngModel)]="registration.password">
+            </div>
+        <!-- </div> -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-md btn-primary" (click)="createUser()">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
