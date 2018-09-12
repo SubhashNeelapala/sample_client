@@ -35,7 +35,7 @@
         <th>Username</th>
         <th>Age</th>
         <th>Name</th>
-        <!-- <th>Edit</th> -->
+        <th>Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -44,8 +44,8 @@
         <td>{{items.mobile_number}}</td>
         <td>{{items.username}}</td>
         <td>{{items.age}}</td>
-        <td>{{items.name}}</td>
-        <!-- <td><button class="fa fa-edit" ></button></td> -->
+        <td>{{items.first_name +' '+items.last_name}}</td>
+        <td><button class="glyphicon glyphicon-pencil" (click)="onEdit(items)"></button></td>
     </tr>
   </tbody>
 </table>
@@ -94,7 +94,8 @@
             </div>
         <!-- </div> -->
         <div class="modal-footer">
-          <button type="submit" class="btn btn-md btn-primary" (click)="createUser()">Submit</button>
+          <button type="submit" class="btn btn-md btn-primary" *ngIf="toggleButton" (click)="createUser()">Submit</button>
+          <button type="submit" class="btn btn-md btn-primary" *ngIf="!toggleButton" (click)="updateData()">Update</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
