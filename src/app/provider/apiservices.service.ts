@@ -26,4 +26,7 @@ export class ApiservicesService {
 getAllData():any{
   return this._jhpheaderservice.apigetData("getallusers")
 }
+createUser(data){
+  return this._jhpheaderservice.apipostData("registration",data);
+}
 }

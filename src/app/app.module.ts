@@ -11,11 +11,13 @@ import { HttpModule } from '@angular/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    UserRegistrationComponent,
     
   ],
   imports: [

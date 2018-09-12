@@ -5,7 +5,6 @@
     
     <!-- Logo --> 
     <a href="#" class="logo logobg" > <!-- mini logo for sidebar mini 50x50 pixels --> 
-    <span class="logo-mini text-primary"><strong> <img src="assets/img/favicon.ico" /> </strong>    </span> 
       <!-- logo for regular state and mobile devices --> 
       <span class="logo-lg text-pink"><strong> Sample Project  </strong></span> </a> 
       
@@ -35,17 +34,20 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left "> <a [routerLink]="['changepassword']" class="btn btn-default btn-flat ">Change Password</a> </div>
-                  <div class="pull-right"> <a (click)="logout()" class="btn btn-default "><i class="fa fa-sign-out"></i> Sign out</a> </div>
+                  
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
           
         </ul>
+        <div class="col-md-6 pull-right">
+          <div class="pull-right"> <a (click)="logout()" class="btn btn-default "><i class="fa fa-sign-out"></i> Sign out</a> </div>
+        </div>
       </div>
     </nav>
   </header>
-<table  datatable   class="table row-border hover table-striped" style="width:100%;">
+<table  datatable [dtTrigger]="dtTrigger"  class="table row-border hover table-striped" style="width:100%;">
   <thead>
     <tr>
         <th>S.No</th>
@@ -53,6 +55,7 @@
         <th>Username</th>
         <th>Age</th>
         <th>Name</th>
+        <th>Edit</th>
     </tr>
   </thead>
   <tbody>
@@ -62,6 +65,7 @@
         <td>{{items.username}}</td>
         <td>{{items.age}}</td>
         <td>{{items.name}}</td>
+        <td><button class="fa fa-edit" ></button></td>
     </tr>
   </tbody>
 </table>
