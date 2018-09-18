@@ -30,8 +30,10 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
       if(localStorage.getItem("username")){
         this.router.navigate(['/home']);
+        return true
       }
       else{  
+        return false
       }  //this.appcomponent.user_logout=0;
     }
     logForm() {       
@@ -40,9 +42,14 @@ export class LoginComponent implements OnInit {
                 try{
 
                   if (res['success']){
-                        this.router.navigate(['/home'])
-// localStorage.setItem("username",res['data'].username)
-                      this.toastr.success( "You are Logged in Successfully"); 
+                    localStorage.setItem('username', res['data'].username);
+                    if(localStorage.getItem('username')!=""){
+                      this.router.navigate(['/home'])
+                      this.toastr.success( "You are Logged in Successfully");
+                    }
+                    else{
+                      this.router.navigate([''])
+                    }
                   }
                   else{
                     this.toastr.error( "you have no permission for login");

@@ -8,10 +8,12 @@ import { ApiservicesService } from './provider/apiservices.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'; 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +28,12 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    DataTablesModule
-  ],
+    DataTablesModule,
+    NgIdleKeepaliveModule.forRoot()
+    ],
   providers: [JhpHeadersService,ApiservicesService],
   bootstrap: [AppComponent]
 })
