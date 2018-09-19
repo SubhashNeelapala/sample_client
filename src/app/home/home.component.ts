@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   district:any;
   result:any;
   toggleButton=0;
+  item:any;
   registrationForm:FormGroup
   registration:UserRegistration=new UserRegistration();
   dtTrigger: Subject<any> = new Subject();
@@ -50,6 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.item=localStorage.getItem('id')
     // console.log(localStorage.getItem('username'))
     if(localStorage.getItem('username')== '' || localStorage.getItem('username')== null ){
     this.router.navigate([''])
@@ -63,7 +65,10 @@ export class HomeComponent implements OnInit {
       password:new FormControl('',Validators.required),
       age:new FormControl('',Validators.required),
       })
-   return this.apiservice.getAllData().then((res)=>{
+      let kwargs={
+        "department":localStorage.getItem('department')
+      }
+   return this.apiservice.getAllUSersDataInDept(kwargs).then((res)=>{
     jQuery('.dataTable').DataTable().destroy();
     jQuery('.dataTable').DataTable({ searching: false });
       this.data=res

@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit {
 
                   if (res['success']){
                     localStorage.setItem('username', res['data'].username);
+                    localStorage.setItem('department',res['data'].department)
+                    localStorage.setItem('id',res['data'].id)
                     if(localStorage.getItem('username')!=""){
                       this.router.navigate(['/home'])
                       this.toastr.success( "You are Logged in Successfully");

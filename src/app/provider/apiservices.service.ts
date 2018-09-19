@@ -23,8 +23,11 @@ export class ApiservicesService {
     return this._jhpheaderservice.apipostData("login/",data);
   
 }
-getAllData():any{
-  return this._jhpheaderservice.apigetData("getallusers")
+// getAllData():any{
+//   return this._jhpheaderservice.apigetData("getallusers")
+// }
+getAllUSersDataInDept(data):any{
+  return this._jhpheaderservice.apipostData("userbasedlist",data)
 }
 createUser(data){
   return this._jhpheaderservice.apipostData("registration",data);

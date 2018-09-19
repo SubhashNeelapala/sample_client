@@ -13,7 +13,7 @@
         <!-- Sidebar toggle button--> 
         <a href="index2.html" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a> 
 
-        <div class="col-md-6 pull-right">
+        <div class="col-md-6 pull-right" >
           <div class="pull-right"> <a (click)="logout()" class="btn btn-default "><i class="fa fa-sign-out"></i> Sign out</a> </div>
         </div>
 
@@ -35,8 +35,8 @@
         <th>Username</th>
         <th>Age</th>
         <th>Name</th>
-        <th>Actions</th>
-        <!-- <th>Delete</th> -->
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -46,10 +46,8 @@
         <td>{{items.username}}</td>
         <td>{{items.age}}</td>
         <td>{{items.first_name +' '+items.last_name}}</td>
-        <div class="col-md-6">
-        <td><button class="glyphicon glyphicon-pencil" (click)="onEdit(items)"></button></td>
+        <td><button class="glyphicon glyphicon-pencil" (click)="onEdit(items)" [disabled]="(item!=23)?true:null"></button></td>
         <td><button class="glyphicon glyphicon-trash"></button></td>
-      </div>
     </tr>
   </tbody>
 </table>
