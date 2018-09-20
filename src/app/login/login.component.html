@@ -13,20 +13,20 @@
          </div> -->
   
         
-  <form style="margin-top: 130px;" [formGroup]="homehierarchylevelform" (ngSubmit)="logForm()"> 
+  <form style="margin-top: 130px;" [formGroup]="homehierarchylevelform" (ngSubmit)="logForm(data)"> 
   <div class="panel panel-default" style="border: none !important;height:300px;">
         <div class="text-center" style="color: #fff;  background-color:#cc508a;text-align: center;padding: 15px 0px;font-size:16px;">Sample Project</div>
         <div class="panel-body" style="padding:50px 15px;">
             <div class="form-group">
     <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input  style="height:46px;" formControlName="username" name="username" type="text" class="form-control"  placeholder="Username">
+        <input  style="height:46px;" formControlName="username" name="username" [(ngModel)]="loginInfo.username" type="text" class="form-control"  placeholder="Username">
       </div>
       </div>
       <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-        <input  style="height:46px;" formControlName="password" type="password" class="form-control" name="password" placeholder="Password">
+        <input  style="height:46px;" formControlName="password" type="password" [(ngModel)]="loginInfo.password" class="form-control" name="password" placeholder="Password">
       </div>
       </div>
     <!-- <div class="checkbox">

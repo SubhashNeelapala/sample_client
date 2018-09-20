@@ -36,32 +36,48 @@ export class LoginComponent implements OnInit {
         return false
       }  //this.appcomponent.user_logout=0;
     }
-    logForm() {       
-              this.apiservice.login(this.homehierarchylevelform.value).then((res => {
-                  console.log(res)
-                try{
+    logForm() { 
+      if(this.loginInfo.username == undefined){
+        this.toastr.error("please enter valid username")
+        return ;
 
-                  if (res['success']){
-                    localStorage.setItem('username', res['data'].username);
-                    localStorage.setItem('department',res['data'].department)
-                    localStorage.setItem('id',res['data'].id)
-                    if(localStorage.getItem('username')!=""){
-                      this.router.navigate(['/home'])
-                      this.toastr.success( "You are Logged in Successfully");
+      }
+      if(this.loginInfo.password == undefined){
+        this.toastr.error("please enter valid password")
+        return ;
+      } 
+      // if(this.loginInfo.username !=undefined && this.loginInfo.password !=undefined){
+        let kwargs={
+          "username":this.loginInfo.username,
+          "password":this.loginInfo.password
+        }
+                this.apiservice.login(kwargs).then((res => {
+                    console.log(res)
+                  try{
+  
+                    if (res['success']){
+                      localStorage.setItem('username', res['data'].username);
+                      localStorage.setItem('department',res['data'].department)
+                      localStorage.setItem('id',res['data'].id)
+                      if(localStorage.getItem('username')!=""){
+                        this.router.navigate(['/home'])
+                        this.toastr.success( "You are Logged in Successfully");
+                      }
+                      else{
+                        this.router.navigate([''])
+                      }
                     }
                     else{
-                      this.router.navigate([''])
+                      this.toastr.error( "you have no permission for login");
                     }
                   }
-                  else{
-                    this.toastr.error( "you have no permission for login");
-                  }
-                }
-                catch(ex){
-                  this.loginstatus =1;                  
-                  this.toastr.error("your username or password wrong")
-                }                 
-                  }));
-              console.log(this.homehierarchylevelform.value);   
+                  catch(ex){
+                    this.loginstatus =1;                  
+                    this.toastr.error("your username or password wrong")
+                  }                 
+                    }));
+                console.log(this.homehierarchylevelform.value); 
+      // }     
+  
       }
 }

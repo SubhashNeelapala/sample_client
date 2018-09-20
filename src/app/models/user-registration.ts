@@ -5,5 +5,7 @@ export class UserRegistration{
     first_name:any =""
     last_name:any=""
     age:any=""
+    department:any=''
+    email:any=''
 
 }

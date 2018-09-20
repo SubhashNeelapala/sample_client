@@ -10,15 +10,15 @@ export class ApiservicesService {
 
 
   constructor(public _jhpheaderservice:JhpHeadersService) { }
-  login(connect) {
+  login(data) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    console.log(connect);
-    let data = {
-        "username": connect.username,
-        "password": connect.password,
+    // console.log(connect);
+    // let data = {
+    //     "username": connect.username,
+    //     "password": connect.password,
         
-    }
+    // }
     console.log(data);
     return this._jhpheaderservice.apipostData("login/",data);
   
@@ -31,5 +31,8 @@ getAllUSersDataInDept(data):any{
 }
 createUser(data){
   return this._jhpheaderservice.apipostData("registration",data);
+}
+getUserDetails(data){
+  return this._jhpheaderservice.apipostData("userdetails_byId",data);
 }
 }

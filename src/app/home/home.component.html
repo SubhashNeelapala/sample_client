@@ -1,107 +1,117 @@
 <div class="wrapper"> 
   
-  <!-- Main Header -->
-  <header class="main-header"> 
-    
-    <!-- Logo --> 
-    <a href="#" class="logo logobg" > <!-- mini logo for sidebar mini 50x50 pixels --> 
-      <!-- logo for regular state and mobile devices --> 
-      <span class="logo-lg text-pink"><strong> Sample Project  </strong></span> </a> 
+    <!-- Main Header -->
+    <header class="main-header"> 
       
-      <!-- Header Navbar -->
-      <nav class="navbar navbar-static-top" role="navigation"> 
-        <!-- Sidebar toggle button--> 
-        <a href="index2.html" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a> 
-
-        <div class="col-md-6 pull-right" >
-          <div class="pull-right"> <a (click)="logout()" class="btn btn-default "><i class="fa fa-sign-out"></i> Sign out</a> </div>
-        </div>
-
+      <!-- Logo --> 
+      <a href="#" class="logo logobg" > <!-- mini logo for sidebar mini 50x50 pixels --> 
+      <span class="logo-mini text-primary"><strong> Sample Project </strong>    </span> 
+        <!-- logo for regular state and mobile devices --> 
+        <span class="logo-lg text-primary"><strong> Sample Project </strong></span> </a> 
         
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation"> 
+          <!-- Sidebar toggle button--> 
+          <a href="index2.html" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span> </a> 
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <li class="dropdown messages-menu"> 
+                <!-- Menu toggle button --> 
+                <a [routerLink]="['/home']" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-home "></i> </a> </li>
+            
+            <!-- Messages: style can be found in dropdown.less-->
+         
+            <!-- /.messages-menu --> 
+            
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu"> 
+              <!-- Menu Toggle Button --> 
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                <!-- The user image in the navbar--> 
+                <!-- <img  src="assets/bootstrap/img/user2-160x160.jpg" class="user-image" alt="User Image">  -->
+                <!-- hidden-xs hides the username on small devices so only the image appears. --> 
+                <span class="hidden-xs">{{username}} </span> </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <!-- <img src="assets/bootstrap/img/user2-160x160.jpg" class="img-circle" alt=""> -->
+                    <p> {{username}} </p>
+                  </li>
+                <!-- Menu Body --> 
+                
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left"> <a href="#" class="btn btn-default btn-flat ">Profile</a> </div>
+                    <div class="pull-right"> <a (click)="logout()" class="btn btn-default ">Sign out</a> </div>>
+                </li>
+              </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+            
+          </ul>
+        </div>
       </nav>
-      
-  </header>
-  <body>
-<div class="col-md-8">
-  <div class="col-md-6 pull-left">
-    <button type="button" class="btn btn-danger btn-sm pull-right"   (click)="AddUser()"><i class="fa fa-plus"></i> Registration</button>
-</div>
-</div>
-<table  datatable [dtTrigger]="dtTrigger"  class="table row-border hover table-striped" style="width:100%;">
-  <thead>
-    <tr>
-        <th>S.No</th>
-        <th>Mobile</th>
-        <th>Username</th>
-        <th>Age</th>
-        <th>Name</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let items of data;let i = index" >
-        <td>{{i+1}}</td>
-        <td>{{items.mobile_number}}</td>
-        <td>{{items.username}}</td>
-        <td>{{items.age}}</td>
-        <td>{{items.first_name +' '+items.last_name}}</td>
-        <td><button class="glyphicon glyphicon-pencil" (click)="onEdit(items)" [disabled]="(item!=23)?true:null"></button></td>
-        <td><button class="glyphicon glyphicon-trash"></button></td>
-    </tr>
-  </tbody>
-</table>
-</body>
-<footer class="main-footer"> 
-    
-  <div class="row">
-      <div class="col-md-8 col-sm-8 col-xs-6">  </div>
-       <div class="col-md-4 col-sm-4 col-xs-6 text-right">© 2018 |  Demo  All Rights Reserved</div>
-  
-  </div>             
-</footer>
-</div>
+    </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar"> 
+        
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar"> 
+          
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image"> 
+              <!-- <img src="assets/bootstrap/img/user2-160x160.jpg" class="img-circle" alt="User Image"> -->
+             </div>
+            <div class="pull-left info">
+              <p class="wccolor"> Welcome {{username}}</p>
+              <p></p>
+            </div>
+          </div>
+          
+          <!-- /.search form --> 
+          
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            
+            <!-- Optionally, you can add icons to the links -->
+            
+            <!-- <li class="treeview"> <a href="#"><i class="fa fa-tachometer"></i> <span>Dashboard</span> <span class="pull-right-container"> <i class="fa fa-angle-right pull-right"></i> </span> </a>
+              <ul class="treeview-menu">
+                <li><a [routerLink]="['/home']">Report</a></li>
+              </ul>
+            </li> -->
+            <li class="treeview"> <a href="#"><i class="fa fa-male"></i> <span>Admin</span> <span class="pull-right-container"> <i class="fa fa-angle-right pull-right"></i> </span> </a>
+              <ul class="treeview-menu">
+                <li><a [routerLink]="['/home/registration']">User Management</a></li>
+          </ul>
+          </li>
 
+          </ul>
+        </section>
+      </aside>
 
-
-
-<form name="registrationForm">
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="background-color:rgb(0, 139, 30);color:brown">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Registration</h4>
-        </div>
-        <!-- <div class="modal-body"> -->
-            <div class="col-md-6 ">
-                Username:<input type="text" class="form-control" name="username" placeholder="username" [(ngModel)]="registration.username" >
-            </div>
-            <div class="col-md-6">
-                First Name<input type="text" class="form-control" name="first_name" placeholder="first_name" [(ngModel)]="registration.first_name">
-            </div>
-            <div class="col-md-6">
-                Last Name<input type="text" class="form-control" name="last_name" placeholder="last_name" [(ngModel)]="registration.last_name">
-            </div>
-            <div class="col-md-6">
-                Mobile Number<input type="text" class="form-control" name="mobile_number" placeholder="mobile_number" [(ngModel)]="registration.mobile_number">
-            </div>
-            <div class="col-md-6">
-                Age<input type="text" name="age" class="form-control" placeholder="age" [(ngModel)]="registration.age">
-            </div>
-            <div class="col-md-6">
-                Password<input type="password" name="password" class="form-control" placeholder="password" [(ngModel)]="registration.password">
-            </div>
-        <!-- </div> -->
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-md btn-primary" *ngIf="toggleButton" (click)="createUser()">Submit</button>
-          <button type="submit" class="btn btn-md btn-primary" *ngIf="!toggleButton" (click)="updateData()">Update</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+      <div class="content-wrapper">    
+          <section class="content">           
+                <router-outlet></router-outlet>   
+          </section>  
+      </div>  
+      <footer class="main-footer">       
+      <div class="row">
+      <div class="col-md-8 col-sm-8 col-xs-6">    <a target="_blank" href="#">&nbsp;Licences</a> | <a href="#">Privacy Policy &nbsp;</a></div>
+       <div class="col-md-4 col-sm-4 col-xs-6 text-right">© 2018 |  Sample  All Rights Reserved</div>      
       </div>
-
+      
+     
+    
+       
+           
+                    
+        
+         </footer>
+      
+      <!-- Control Sidebar --> 
+      
     </div>
-  </div>
-</form>
+  
