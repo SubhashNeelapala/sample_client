@@ -88,6 +88,7 @@ export class UserRegistrationComponent implements OnInit {
     })
   }
   AddUser(){
+    this.toggleButton=1
     jQuery('#myModal').modal();
     // this.router.navigate(['home/registration'])
   }

@@ -14,12 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { ProfileComponent } from './profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
     UserRegistrationComponent,
+    ProfileComponent,
     
   ],
   imports: [
