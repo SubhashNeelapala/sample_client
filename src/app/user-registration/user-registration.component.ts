@@ -32,6 +32,7 @@ export class UserRegistrationComponent implements OnInit {
       'mobile_number':new FormControl('',Validators.required),
       'password':new FormControl('',Validators.required),
       'age':new FormControl('',Validators.required),
+      'email':new FormControl('',Validators.required)
       })
     let kwargs={
       "department":localStorage.getItem('department')
@@ -100,21 +101,22 @@ export class UserRegistrationComponent implements OnInit {
     this.registration.age=items.age
     this.registration.password=items.password
     this.registration.mobile_number = items.mobile_number
+    this.registration.email = items.email
     jQuery('#myModal').modal('show')
   }
   updateData(){
     // return this.registration;
     console.log(this.registration)
-    this.apiservice.createUser(this.registration).then((res)=>{
+    this.apiservice.updateDetails(this.registration).then((res)=>{
       console.log(res)
       jQuery('#myModal').modal('hide')
-      this.registrationForm.clearValidators()
-      this.registrationForm.reset()
       this.registration.username=''
       this.registration.first_name=''
       this.registration.last_name=''
       this.registration.age=''
       this.registration.password=''
+      this.registration.mobile_number=''
+      this.registration.email=''
     })
   }
   getUserdetails(){

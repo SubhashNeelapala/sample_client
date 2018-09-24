@@ -58,8 +58,11 @@
                 <div class="col-md-6">
                     Age<input type="text" name="age" class="form-control" placeholder="age" [(ngModel)]="registration.age">
                 </div>
+                <div class="col-md-6" *ngIf="toggleButton">
+                    Password<input type="password" name="password" class="form-control" placeholder="password"  [(ngModel)]="registration.password">
+                </div>
                 <div class="col-md-6">
-                    Password<input type="password" name="password" class="form-control" placeholder="password" [(ngModel)]="registration.password">
+                    Email<input type="email" name="email" class="form-control" placeholder="email" [(ngModel)]="registration.email">
                 </div>
             <!-- </div> -->
             <div class="modal-footer">

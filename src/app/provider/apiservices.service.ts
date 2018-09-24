@@ -33,6 +33,9 @@ createUser(data){
   return this._jhpheaderservice.apipostData("registration",data);
 }
 getUserDetails(data){
-  return this._jhpheaderservice.apipostData("userdetails_byId",data);
+  return this._jhpheaderservice.apipostData("userdetails_byname",data);
+}
+updateDetails(data){
+  return this._jhpheaderservice.apipostData("update_profile",data);
 }
 }
