@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserRegistration } from '../models/user-registration';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { KeyedWrite } from '@angular/compiler';
 declare var jQuery:any;
 @Component({
   selector: 'app-user-registration',
@@ -133,4 +134,19 @@ export class UserRegistrationComponent implements OnInit {
     
     })
   }
+  deleteUser(uid){
+    // debugger
+    console.log(uid.id)
+  let kwargs={
+    "id":uid.id
+  }
+  // return uid
+  this.apiservice.deleteUser(kwargs).then((res)=>{
+    this.toastr.show(res['msg'])
+    jQuery('.dataTable').DataTable().destroy();
+    jQuery('.dataTable').DataTable({ searching: false });
+    // this.getUserdetails()
+  })
+
+}
 }

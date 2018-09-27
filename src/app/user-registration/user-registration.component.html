@@ -26,7 +26,7 @@
           <td>{{items.age}}</td>
           <td>{{items.first_name +' '+items.last_name}}</td>
           <td><button class="fa fa-edit" (click)="onEdit(items)" [disabled]="(item!=23)?true:null"></button></td>
-          <td><button class="fa fa-trash"></button></td>
+          <td><button class="fa fa-trash" (click)="deleteUser(items)" ></button></td>
       </tr>
     </tbody>
   </table>

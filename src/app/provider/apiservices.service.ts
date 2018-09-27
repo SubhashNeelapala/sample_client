@@ -38,4 +38,7 @@ getUserDetails(data){
 updateDetails(data){
   return this._jhpheaderservice.apipostData("update_profile",data);
 }
+deleteUser(id){
+  return this._jhpheaderservice.apipostData("delete_user",id);
+}
 }
