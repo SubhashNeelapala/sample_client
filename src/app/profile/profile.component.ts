@@ -20,7 +20,5 @@ data:any;
       this.data=res[0]
     })
   }
-// updateDetails(data){
-//   this.apiservice.updateDetails(kwargs).then()
-// }
+
 }

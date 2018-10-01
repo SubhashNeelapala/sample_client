@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserRegistration } from '../models/user-registration';
 import {Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { KeyedWrite } from '@angular/compiler';
+import { JhpHeadersService } from '../provider/provider.component'
 declare var jQuery:any;
 @Component({
   selector: 'app-user-registration',
@@ -22,9 +23,10 @@ export class UserRegistrationComponent implements OnInit {
   registration:UserRegistration=new UserRegistration();
   dtTrigger: Subject<any> = new Subject();
   public userRegistrationForm: FormGroup;
-  constructor(private formbuilder:FormBuilder,public apiservice:ApiservicesService,public router:Router,private toastr:ToastrService) { }
-
+  constructor(private formbuilder:FormBuilder,public apiservice:ApiservicesService,public router:Router,private toastr:ToastrService,public jhpheaderservice:JhpHeadersService) { }
+  department=localStorage.getItem('department_id')
   ngOnInit() {
+    console.log(this.jhpheaderservice.url)
     this.item=localStorage.getItem('id')
     this.userRegistrationForm = new FormGroup({
       'username':new FormControl('',Validators.required),
@@ -145,8 +147,10 @@ export class UserRegistrationComponent implements OnInit {
     this.toastr.show(res['msg'])
     jQuery('.dataTable').DataTable().destroy();
     jQuery('.dataTable').DataTable({ searching: false });
+    
     // this.getUserdetails()
   })
 
 }
+
 }
